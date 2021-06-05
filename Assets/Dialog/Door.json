@@ -1,0 +1,37 @@
+{
+   "speech":[
+      {
+         "index":"hello",
+         "text":"Hi, I am the Door Lord. It is nice to see you.",
+         "wait":3,
+         "next":"ask_enter_door"
+      },
+      {
+         "index":"ask_enter_door",
+         "text":"Do you want to enter this door?",
+         "wait":3,
+         "replyOptions":[
+            {
+               "index":"yes",
+               "text":"Yes, I want to enter [Y]",
+               "next":"reply_yes"
+            },
+            {
+               "index":"no",
+               "text":"No, I'd rather not [N]",
+               "next":"reply_no"
+            }
+         ]
+      },
+      {
+         "index":"reply_yes",
+         "text":"Without any armor?!  Well, what does not destroy you...",
+         "exit" : true
+      },
+      {
+         "index":"reply_no",
+         "text":"Smart choice!  You only live once; best to stay alive.",
+         "exit" : true
+      }
+   ]
+}

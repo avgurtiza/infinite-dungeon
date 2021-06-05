@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Foyer.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Dungeons/Shield.unity
+    guid: 64ca86018be8b4f4c8a31a1d5bec9483
+  - enabled: 1
+    path: Assets/Scenes/Dungeons/Amulet.unity
+    guid: 8364fceed9fe24a619c58a6bcad0b12f
+  - enabled: 1
+    path: Assets/Scenes/Dungeons/GoldBarA.unity
+    guid: 3315e323349b0439494c5a63e1834a54
+  - enabled: 1
+    path: Assets/Scenes/Dungeons/GoldBarB.unity
+    guid: 26e390df5b83f41f79c24d519be8ea38
+  - enabled: 1
+    path: Assets/Scenes/Dungeons/Mask.unity
+    guid: c245b469cb85e4e4d85938f94fc43639
+  - enabled: 1
+    path: Assets/Scenes/Dungeons/Sword.unity
+    guid: 396ed059d13b4435a8f2802501bdaf16
+  m_configObjects: {}
