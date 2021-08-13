@@ -16,10 +16,16 @@ public class ReceptacleEntity : MonoBehaviour
         
         GameObject TreasureObject = GameObject.FindWithTag("Treasure");
 
+        GameObject Maze = GameObject.FindWithTag("MazeWall");
+
         if(TreasureObject is GameObject) {
 	        Debug.Log("Receptacle collided with " + TreasureObject.name);
 	        ElfInventory.removeFromBackpack(DestinyArtifact);
 			TreasureObject.GetComponent<Renderer>().enabled = !ElfInventory.hasItem(TreasureObject.name);
+
+            if(Maze is GameObject) {
+                Maze.SetActive(ElfInventory.hasItem(TreasureObject.name));
+            }
         }
     }
 }

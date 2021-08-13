@@ -12,6 +12,8 @@ public class DungeonManager : MonoBehaviour
 
     private GameObject TreasureObject;
 
+    private GameObject Maze;
+
     private GameObject Elf;
 
     private ElfMovement ElfMovement;
@@ -22,6 +24,7 @@ public class DungeonManager : MonoBehaviour
     {
         TreasureObject = GameObject.FindWithTag("Treasure");
 
+        Maze = GameObject.FindWithTag("MazeWall");
 
         Elf = GameObject.Find("ElfPC");
 
@@ -34,6 +37,11 @@ public class DungeonManager : MonoBehaviour
         if(TreasureObject is GameObject) {
             Debug.Log("Treasure: " + TreasureObject.name);
             TreasureObject.GetComponent<Renderer>().enabled = !ElfInventory.hasItem(TreasureObject.name);
+
+            if(Maze is GameObject) {
+                Maze.SetActive(ElfInventory.hasItem(TreasureObject.name));
+            }
+
             // TreasureObject.SetActive(!ElfInventory.hasItem(Treasure));
         }
     }
