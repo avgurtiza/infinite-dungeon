@@ -28,6 +28,7 @@ public class ElfMovement : MonoBehaviour
 
     protected ElfInventory elfInventory;
 
+    private Vector2 movement;
 
     void Awake() { 
         DontDestroyOnLoad(this.gameObject);
@@ -43,9 +44,9 @@ public class ElfMovement : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        Vector2 movement = new Vector2(movementX, movementY);
+        movement = new Vector2(movementX, movementY);
 
         transform.Translate(movement * speed, Space.World);
     }
@@ -123,7 +124,7 @@ public class ElfMovement : MonoBehaviour
     }
 
     public void updateSpeed() {
-        // ElfInventory elfInventory = GameObject.Find("ElfPC").GetComponent<ElfInventory>();
+        ElfInventory elfInventory = GameObject.Find("ElfPC").GetComponent<ElfInventory>();
         float inventoryWeight = elfInventory.getInventoryWeight();
         float speedModifier = 1 - ((inventoryWeight / elfWeight) * 1.15f); 
         speed = baseSpeed * speedModifier;
@@ -136,12 +137,8 @@ public class ElfMovement : MonoBehaviour
         // TODO move to its own handler class
         // TODO add handler for other entity-tags
 
-        if(collider.tag == "Receptacle") {
-            ReceptacleEntity receptacle = collision.gameObject.GetComponent<ReceptacleEntity>();
-            elfInventory.removeFromBackpack(receptacle.DestinyArtifact);
-            
+        if(collider.tag == "Receptacle") {            
             updateSpeed();
-
             Debug.Log("Speed: " + speed.ToString() + ", Inventory: " + elfInventory.getItems());
         }
 

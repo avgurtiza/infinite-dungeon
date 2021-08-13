@@ -5,12 +5,52 @@ using UnityEngine;
 
 public class DungeonManager : MonoBehaviour
 {
+    // [SerializeField]
+    // public string Treasure;
+
+    private bool treasureVisible = false;
+
+    private GameObject TreasureObject;
+
+    private GameObject Elf;
+
+    private ElfMovement ElfMovement;
+
+    private ElfInventory ElfInventory;
+
     void Start()
     {
-        GameObject Elf = GameObject.Find("ElfPC");
-        // Debug.Log(Elf.GetComponent<ElfMovement>().getDungeonEntryPosition());
+        TreasureObject = GameObject.FindWithTag("Treasure");
+
+
+        Elf = GameObject.Find("ElfPC");
+
+        ElfMovement = Elf.GetComponent<ElfMovement>();
 		
-		Elf.transform.position = Elf.GetComponent<ElfMovement>().getDungeonEntryPosition();
+		Elf.transform.position = ElfMovement.getDungeonEntryPosition();
+
+        ElfInventory = Elf.GetComponent<ElfInventory>();
+
+        if(TreasureObject is GameObject) {
+            Debug.Log("Treasure: " + TreasureObject.name);
+            TreasureObject.GetComponent<Renderer>().enabled = !ElfInventory.hasItem(TreasureObject.name);
+            // TreasureObject.SetActive(!ElfInventory.hasItem(Treasure));
+        }
     }
 
+    public bool TreasureIsVisible() {
+        return treasureVisible;
+    }
+
+    private void ShowTreasure() {
+        treasureVisible = true;
+    }
+
+    private void HideTreasure() {
+        treasureVisible = false;
+    }
+
+    private void ToggleTreasure() {
+        treasureVisible = !treasureVisible;
+    }
 }

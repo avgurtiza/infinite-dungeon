@@ -17,6 +17,10 @@ public class Backpack
 		}		
 	}
 
+	public ArtifactEntity[] getArtifacts() {
+		return artifacts;
+	}
+
 	public float getContentsWeight() {
 		float weight = 0f;
 		foreach (ArtifactEntity artifact in artifacts) {

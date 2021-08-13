@@ -17,7 +17,13 @@ public class LobbyManager : MonoBehaviour
             MyElf = Instantiate(Elf, FoyerPosition, Quaternion.identity);
             MyElf.name = "ElfPC";
         } else {
-            FoyerPosition = MyElf.GetComponent<ElfMovement>().getLastFoyerPostion();
+            FoyerPosition = MyElf.GetComponent<ElfMovement>().getLastFoyerPostion(); // FIXME This should return a Vector 3, not a transform!
+
+            if(FoyerPosition.y > 0) {
+                FoyerPosition = new Vector3(FoyerPosition.x, FoyerPosition.y - 0.5f, FoyerPosition.z);
+            } else {
+                FoyerPosition = new Vector3(FoyerPosition.x, FoyerPosition.y + 0.5f, FoyerPosition.z);
+            }
         }        
     }
 
