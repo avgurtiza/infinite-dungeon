@@ -44,7 +44,7 @@ public class ElfMovement : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         movement = new Vector2(movementX, movementY);
 
