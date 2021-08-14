@@ -24,7 +24,7 @@ public class DungeonManager : MonoBehaviour
     {
         TreasureObject = GameObject.FindWithTag("Treasure");
 
-        Maze = GameObject.FindWithTag("MazeWall");
+        Maze = GameObject.Find("Maze");
 
         Elf = GameObject.Find("ElfPC");
 

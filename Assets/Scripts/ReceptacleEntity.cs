@@ -16,7 +16,7 @@ public class ReceptacleEntity : MonoBehaviour
         
         GameObject TreasureObject = GameObject.FindWithTag("Treasure");
 
-        GameObject Maze = GameObject.FindWithTag("MazeWall");
+        GameObject Maze = GameObject.Find("Maze");
 
         if(TreasureObject is GameObject) {
 	        Debug.Log("Receptacle collided with " + TreasureObject.name);
